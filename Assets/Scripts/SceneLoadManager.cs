@@ -37,11 +37,20 @@ public class SceneLoadManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(scene.buildIndex);
     }
 
+    private static void UnloadScene(int sceneIndex)
+    {
+        SceneManager.UnloadSceneAsync(sceneIndex);
+    }
+
     public static void LoadScene1(int scene)
     {
-        UnloadScene();
+        int currentScene = SceneManager.GetActiveScene().buildIndex;
         var loadSceneTask = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
-        loadSceneTask.completed += (AsyncOperation obj) => SetActiveScene(scene);
+        loadSceneTask.completed += (AsyncOperation obj) =>
+        {
+            SetActiveScene(scene);
+            UnloadScene(currentScene);
+        };
     }
 
 
@@ -75,6 +84,13 @@ public class SceneLoadManager : MonoBehaviour
         LoadScene1(sceneIndex);
         // StartCoroutine(LoadSceneCoroutine(sceneIndex));
     }
+
+    [ContextMenu("Load Scene 1")]
+    public void LoadScene()
+    {
+        LoadScene(1);
+    }
+
 
     private IEnumerator LoadSceneCoroutine(int sceneIndex)
     {
