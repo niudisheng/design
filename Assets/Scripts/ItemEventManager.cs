@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +5,7 @@ using UnityEngine.UI;
 public class ItemEventManager : MonoBehaviour
 {
     public static ItemOBJSO itemOBJSO;
+    public TextMeshProUGUI title;
     public TextMeshProUGUI Description;
     public Image ItemSprite;
     public int testID;
@@ -15,11 +13,7 @@ public class ItemEventManager : MonoBehaviour
     {
         // MyEventManager.Instance.AddEventListener(unitEvent.ShowTips.ToString(), ShowItemTips);
     }
-
-    private void ShowItemTips()
-    {
-        // var tip = Instantiate(itemOBJSO.TipPrefab, Values.canvas.transform);
-    }
+    
 
     private void Start()
     {
@@ -44,6 +38,7 @@ public class ItemEventManager : MonoBehaviour
         }
 
         ItemSprite.sprite = itemOBJSO.itemIcon;
+        title.text = itemOBJSO.itemName;
         Description.text = itemOBJSO.Description;
         // InitTips();
     }

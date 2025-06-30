@@ -6,10 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemOBJSO", menuName = "Item/ItemOBJSO")]
 public class ItemOBJSO : ScriptableObject
 {
+    [TextArea(3, 100)]
     public string itemName;
     public int itemID;
-    [TextArea] public string Description;
+    [TextArea(10, 100)] public string Description;
     public Sprite itemIcon;
     public itemEvent itemEvent;
-    // public GameObject TipPrefab;
 }
