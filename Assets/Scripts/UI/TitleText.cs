@@ -15,7 +15,7 @@ public class TitleText : MonoBehaviour
     }
     void Start()
     {
-       title.text = "牛首形杆饰"; 
+       title.text = ""; 
        SoundManager.Instance.playBackgroundMusic();
        
     }
