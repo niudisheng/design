@@ -3,21 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemEventManager : MonoBehaviour
 {
     public static ItemOBJSO itemOBJSO;
     public TextMeshProUGUI Description;
-    public SpriteRenderer ItemSprite;
-
+    public Image ItemSprite;
+    public int testID;
     private void Awake()
     {
-        MyEventManager.Instance.AddEventListener(unitEvent.ShowTips.ToString(), ShowItemTips);
+        // MyEventManager.Instance.AddEventListener(unitEvent.ShowTips.ToString(), ShowItemTips);
     }
 
     private void ShowItemTips()
     {
-        var tip = Instantiate(itemOBJSO.TipPrefab, Values.canvas.transform);
+        // var tip = Instantiate(itemOBJSO.TipPrefab, Values.canvas.transform);
     }
 
     private void Start()
@@ -29,7 +30,7 @@ public class ItemEventManager : MonoBehaviour
     public void Test()
     {
         Debug.Log("Test");
-        itemOBJSO = Resources.Load<ItemOBJSO>("Data/ItemOBJSO");
+        itemOBJSO = Resources.Load<ItemOBJSO>($"Data/Item{testID}");
         Debug.Log(itemOBJSO.itemID);
         InitScene();
     }
@@ -44,11 +45,11 @@ public class ItemEventManager : MonoBehaviour
 
         ItemSprite.sprite = itemOBJSO.itemIcon;
         Description.text = itemOBJSO.Description;
-        InitTips();
+        // InitTips();
     }
 
     private void InitTips()
     {
-        MyEventManager.Instance.EventTrigger(unitEvent.ShowTips.ToString());
+        // MyEventManager.Instance.EventTrigger(unitEvent.ShowTips.ToString());
     }
 }

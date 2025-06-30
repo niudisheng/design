@@ -11,5 +11,5 @@ public class ItemOBJSO : ScriptableObject
     [TextArea] public string Description;
     public Sprite itemIcon;
     public itemEvent itemEvent;
-    public GameObject TipPrefab;
+    // public GameObject TipPrefab;
 }
