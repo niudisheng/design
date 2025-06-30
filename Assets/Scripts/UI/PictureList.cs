@@ -22,7 +22,7 @@ public class PictureList : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
 
     public void OnDrag(PointerEventData eventData)
     {
-        Vector2 minPosition=new Vector2(-3000, rectTransform.position.y);
+        Vector2 minPosition=new Vector2(-2000, rectTransform.position.y);
         Vector2 maxPosition=new Vector2(0,rectTransform.position.y);
         Vector2 newPosition = new Vector2(eventData.position.x-pointerOffset.x, rectTransform.position.y);
         newPosition.x = Mathf.Clamp(newPosition.x, minPosition.x, maxPosition.x);

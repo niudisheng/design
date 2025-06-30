@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,16 @@ public class SoundManager : MonoBehaviour
     public AudioClip[] musicClips;
 
     public AudioClip[] effectClips;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        
+    }
+
     public void playBackgroundMusic()
     {
         musicSource.clip = backgroundMusic;
