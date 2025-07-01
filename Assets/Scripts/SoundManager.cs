@@ -24,8 +24,12 @@ public class SoundManager : MonoBehaviour
 
     public void playBackgroundMusic()
     {
-        musicSource.clip = backgroundMusic;
-        musicSource.Play();
+        if (!musicSource.isPlaying)
+        {
+            musicSource.clip = backgroundMusic;
+            musicSource.Play();
+        }
+        
     }
     public void playEffect(int index)
     {
